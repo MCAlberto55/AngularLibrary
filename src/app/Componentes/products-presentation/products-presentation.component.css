@@ -1,0 +1,14 @@
+.productsPresentation {
+  text-align: center;
+
+  background-color: #e7e3d0;
+}
+
+.container {
+  background-color: #f6edd9;
+}
+
+.pagination {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

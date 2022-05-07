@@ -1,0 +1,24 @@
+.itemsContariner {
+  width: 100%;
+  background-color: #f6edd9;
+}
+
+.row {
+  width: 100%;
+  background-color: #f6edd9;
+}
+
+.col {
+  width: 25%;
+}
+
+.card {
+  width: 100%;
+  height: 500px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
