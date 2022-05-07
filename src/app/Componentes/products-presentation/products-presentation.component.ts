@@ -27,7 +27,6 @@ export class ProductsPresentationComponent implements OnInit {
     this.isLoading = true;
     this.api.getAll().subscribe((res) => {
       //this.libros = res;
-
       //console.log(res);
       //this.test = 'Este es el mensaje de prueba actualizado';
 
@@ -47,6 +46,10 @@ export class ProductsPresentationComponent implements OnInit {
         ];
         this.libros.push(book);
       }
+
+      if (this.libros.length == 0) {
+        this.searchValue = '';
+      }
       this.actualizarBusquedaInit();
       this.isLoading = false;
     });
@@ -62,7 +65,7 @@ export class ProductsPresentationComponent implements OnInit {
 
   actualizarBusqueda() {
     console.log('buscnado: ' + this.searchValue);
-    if (this.searchValue.trim().length > 0) {
+    if (this.searchValue.trim().length >= 0) {
       this.busqueda = this.searchValue;
     } else {
       swal(
