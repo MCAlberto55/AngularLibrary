@@ -15,6 +15,7 @@ export class ProductsPresentationComponent implements OnInit {
   userId: string;
   userCartId: string;
   isLoading: boolean = false;
+  inicial = 0;
 
   constructor(
     private api: FakeLibraryService,
@@ -60,6 +61,8 @@ export class ProductsPresentationComponent implements OnInit {
   }
 
   actualizarBusquedaInit() {
+    //aca, no en Init el inicial, sino lo hace al recargar
+    this.inicial = 1;
     this.busqueda = this.searchValue;
   }
 

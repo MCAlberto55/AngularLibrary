@@ -31,7 +31,11 @@
           Buscar
         </button>
       </div>
-      <app-item-cart [libros]="libros" [busqueda]="busqueda"></app-item-cart>
+      <app-item-cart
+        [libros]="libros"
+        [busqueda]="busqueda"
+        [inicial]="inicial"
+      ></app-item-cart>
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <li class="page-item disabled">

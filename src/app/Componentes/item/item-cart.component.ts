@@ -15,6 +15,7 @@ export class ItemCartComponent implements OnInit {
   librosFiltrados: any[];
   alerts: string[];
   logged: boolean = false;
+  @Input() inicial: number;
 
   constructor(private api: AddToCartService) {}
 
@@ -23,7 +24,7 @@ export class ItemCartComponent implements OnInit {
     console.log(this.libros);
     console.log('cambio notificado: ' + this.busqueda);
 
-    this.librosFiltrados = actualizarBusqueda(this.busqueda, this.libros);
+    this.librosFiltrados = this.actualizarBusqueda(this.busqueda, this.libros);
   }
 
   ngOnInit(): void {
@@ -59,14 +60,29 @@ export class ItemCartComponent implements OnInit {
       );
     }
   }
-}
 
-function actualizarBusqueda(busqueda: string, libros: any[]) {
-  let librosFiltrados: any[];
-  librosFiltrados = libros.filter((book) => {
-    return book[0].includes(busqueda);
-  });
+  /*Idealmente se haría una petición al backend que retorne los datos que encuentre,
+pero con fakeStore no se puede simular una llamada que retorna lo encontrado*/
+  actualizarBusqueda(busqueda: string, libros: any[]) {
+    let librosFiltrados: any[];
+    librosFiltrados = libros.filter((book) => {
+      return book[0].includes(busqueda);
+    });
 
-  console.log('Nuevo array: ' + librosFiltrados);
-  return librosFiltrados;
+    if (librosFiltrados.length == 0) {
+      if (this.inicial != 0) {
+        swal(
+          '¡No hemos encontrado ese libro!',
+          'Intenta ingresando otros datos ಥ_ಥ',
+          'error'
+        );
+      }
+      console.log('inicial :' + this.inicial);
+
+      return libros;
+    } else {
+      console.log('Nuevo array: ' + librosFiltrados);
+      return librosFiltrados;
+    }
+  }
 }
