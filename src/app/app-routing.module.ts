@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'Log', component: UserControllerComponent },
   { path: 'Cart', component: CartCotrollerComponent },
   { path: '', redirectTo: 'Products', pathMatch: 'full' },
+  { path: '**', redirectTo: 'Products', pathMatch: 'full' },
 ];
 
 @NgModule({
