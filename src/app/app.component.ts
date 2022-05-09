@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   userId: string = '';
   userCartId: string = '';
   logged = false;
+  title = 'Library';
 
   constructor(private userInfo: GetUserInfoService) {}
 
