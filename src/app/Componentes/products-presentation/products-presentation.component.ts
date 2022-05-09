@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FakeLibraryService } from '../../Services/getProducts/fake-library.service';
-import swal from '../../utils/sweetAlert';
+//import swal from '../../utils/sweetAlert';
 
 @Component({
   selector: 'app-products-presentation',
@@ -71,11 +71,11 @@ export class ProductsPresentationComponent implements OnInit {
     if (this.searchValue.trim().length >= 0) {
       this.busqueda = this.searchValue;
     } else {
-      swal(
+      /*swal(
         '¡Agregue una cadena válida!',
         '¡ Ya deja de intentar romper cosas (╯°□°）╯ !',
         'error'
-      );
+      );*/
     }
   }
 }

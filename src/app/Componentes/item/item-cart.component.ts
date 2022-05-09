@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AddToCartService } from '../../Services/addToCart/add-to-cart.service';
-import swal from '../../utils/sweetAlert';
+//import swal from '../../utils/sweetAlert';
 
 @Component({
   selector: 'app-item-cart',
@@ -46,18 +46,18 @@ export class ItemCartComponent implements OnInit {
       console.log('Agregando al carrito con id de producto ' + item[5]);
       this.api.add(itemInfo).subscribe((res) => {
         console.log(res);
-        swal(
-          '¡Libro agregado al carrito!',
-          'Gracias por su preferencia owo',
-          'success'
-        );
+        // swal(
+        //   '¡Libro agregado al carrito!',
+        //   'Gracias por su preferencia owo',
+        //   'success'
+        // );
       });
     } else {
-      swal(
-        '¡No puede agregar elementos al carrito!',
-        'Debe iniciar sesión primero nwn',
-        'warning'
-      );
+      // swal(
+      //   '¡No puede agregar elementos al carrito!',
+      //   'Debe iniciar sesión primero nwn',
+      //   'warning'
+      // );
     }
   }
 

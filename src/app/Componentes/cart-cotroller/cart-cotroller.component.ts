@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { GetUserInfoService } from '../../Services/getUserInfo/get-user-info.service';
 import { GetCartService } from '../../Services/GetCart/get-cart.service';
 import { GetSingleBookService } from '../../Services/getASingle/get-single-book.service';
-import swal from '../../utils/sweetAlert';
+//import swal from '../../utils/sweetAlert';
 
 @Component({
   selector: 'app-cart-cotroller',
@@ -72,10 +72,10 @@ export class CartCotrollerComponent implements OnInit {
   }
 
   generateQR() {
-    swal(
-      '¡Se ha generado su QR!',
-      'Se le mandado a su correo ( ˙▿˙ )',
-      'success'
-    );
+    // swal(
+    //   '¡Se ha generado su QR!',
+    //   'Se le mandado a su correo ( ˙▿˙ )',
+    //   'success'
+    // );
   }
 }

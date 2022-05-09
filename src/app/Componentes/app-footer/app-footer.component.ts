@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import swal from '../../utils/sweetAlert';
+//import swal from '../../utils/sweetAlert';
 
 @Component({
   selector: 'app-app-footer',
@@ -12,6 +12,6 @@ export class AppFooterComponent implements OnInit {
   ngOnInit(): void {}
 
   muyPronto() {
-    swal('¡Muy pronto!', '¡ que no panda el cunico ( ͡ᵔ ͜ʖ ͡ᵔ) !', 'info');
+    // swal('¡Muy pronto!', '¡ que no panda el cunico ( ͡ᵔ ͜ʖ ͡ᵔ) !', 'info');
   }
 }
