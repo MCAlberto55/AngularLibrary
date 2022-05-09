@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FakeLibraryService } from '../../Services/getProducts/fake-library.service';
-import swal from 'sweetalert';
+import swal from '../../utils/sweetAlert';
 
 @Component({
   selector: 'app-products-presentation',

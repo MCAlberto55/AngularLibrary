@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { GetUserInfoService } from '../../Services/getUserInfo/get-user-info.service';
 import { GetCartService } from '../../Services/GetCart/get-cart.service';
 import { GetSingleBookService } from '../../Services/getASingle/get-single-book.service';
-import swal from 'sweetalert';
+import swal from '../../utils/sweetAlert';
 
 @Component({
   selector: 'app-cart-cotroller',

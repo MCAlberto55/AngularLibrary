@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AddToCartService } from '../../Services/addToCart/add-to-cart.service';
-import swal from 'sweetalert';
+import swal from '../../utils/sweetAlert';
 
 @Component({
   selector: 'app-item-cart',

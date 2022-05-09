@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import swal from 'sweetalert';
+import swal from '../../utils/sweetAlert';
 
 @Component({
   selector: 'app-app-footer',
