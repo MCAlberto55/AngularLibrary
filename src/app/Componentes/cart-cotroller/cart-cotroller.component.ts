@@ -68,7 +68,7 @@ export class CartCotrollerComponent implements OnInit {
   addBook(/*cantidad: string*/) {
     /*let temp = this.numItemsCart;
     this.numItemsCart = temp + Number(cantidad);*/
-    swal('¡Oops!', 'Solo se puede rentar 1 ejemplar por usuario ಠ_ಠ', 'info');
+    // swal('¡Oops!', 'Solo se puede rentar 1 ejemplar por usuario ಠ_ಠ', 'info');
   }
 
   generateQR() {

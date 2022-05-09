@@ -71,11 +71,11 @@ pero con fakeStore no se puede simular una llamada que retorna lo encontrado*/
 
     if (librosFiltrados.length == 0) {
       if (this.inicial != 0) {
-        swal(
-          '¡No hemos encontrado ese libro!',
-          'Intenta ingresando otros datos ಥ_ಥ',
-          'error'
-        );
+        // swal(
+        //   '¡No hemos encontrado ese libro!',
+        //   'Intenta ingresando otros datos ಥ_ಥ',
+        //   'error'
+        // );
       }
       console.log('inicial :' + this.inicial);
 
