@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class FakeLibraryService {
-  private fakeApi = 'https://fakestoreapi.com/products';
+  private fakeApi = 'https://qr-lib-api.herokuapp.com/books?page=';
 
   constructor(private htts: HttpClient) {}
 
-  public getAll(): Observable<any> {
-    return this.htts.get(this.fakeApi);
+  public getAll(page: String): Observable<any> {
+    return this.htts.get(this.fakeApi + page);
   }
 }

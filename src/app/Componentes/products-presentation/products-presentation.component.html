@@ -8,44 +8,42 @@
   <app-loading-spinner [isLoading]="isLoading"></app-loading-spinner>
   <body class="productsPresentation">
     <div class="container">
-      <div
-        class="input-group mb-3"
-        style="position: relative; padding-top: 20px"
-      >
-        <span class="input-group-text" id="basic-addon1"
-          ><i class="bi bi-search"></i
-        ></span>
-        <input
-          type="text"
-          [(ngModel)]="searchValue"
-          class="form-control"
-          placeholder="¿Qué estas buscando?"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-        <button
-          type="button"
-          class="btn btn-info"
-          (click)="actualizarBusqueda()"
+      <div class="headerPresentationcontainer">
+        <div
+          class="input-group input-group-lg"
+          style="position: relative; padding-top: 20px"
         >
-          Buscar
-        </button>
+          <span class="input-group-text input-group-lg" id="basic-addon1"
+            ><i class="bi bi-search"></i
+          ></span>
+          <input
+            type="text"
+            [(ngModel)]="searchValue"
+            class="form-control"
+            placeholder="¿Qué estas buscando?"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+          <button type="button" class="btn btn-info" (click)="buscarLibro()">
+            Buscar
+          </button>
+        </div>
       </div>
-      <app-item-cart
-        [libros]="libros"
-        [busqueda]="busqueda"
-        [inicial]="inicial"
-      ></app-item-cart>
+
+      <app-item-cart [libros]="libros" [inicial]="inicial"></app-item-cart>
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
           <li class="page-item">
-            <a class="page-link" href="#">Next</a>
+            <a class="page-link" (click)="primeraPagina()">Inicio</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="paginaAnterior()">Anterior</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="siguientePagina()">Siguiente</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" (click)="ultimaPagina()">Final</a>
           </li>
         </ul>
       </nav>

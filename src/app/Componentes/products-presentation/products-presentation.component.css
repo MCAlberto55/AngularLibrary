@@ -8,6 +8,14 @@
   background-color: #f6edd9;
 }
 
+.headerPresentationcontainer {
+  padding: 20px;
+}
+
+.page-item {
+  padding: 10px;
+}
+
 .pagination {
   padding-top: 15px;
   padding-bottom: 15px;

@@ -10,7 +10,6 @@ import { AddToCartService } from '../../Services/addToCart/add-to-cart.service';
 export class ItemCartComponent implements OnInit {
   @Input() libros: any[];
   @Input() test: string;
-  @Input() busqueda: string = ' ';
   @Input() encryptedUserId: string = '';
   librosFiltrados: any[];
   alerts: string[];
@@ -22,9 +21,8 @@ export class ItemCartComponent implements OnInit {
   ngOnChanges() {
     console.log('a ver aki');
     console.log(this.libros);
-    console.log('cambio notificado: ' + this.busqueda);
 
-    this.librosFiltrados = this.actualizarBusqueda(this.busqueda, this.libros);
+    this.librosFiltrados = this.libros;
   }
 
   ngOnInit(): void {

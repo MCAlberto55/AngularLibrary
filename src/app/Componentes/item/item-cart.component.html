@@ -11,19 +11,19 @@
       <div class="row row-cols-4 row-cols-md-4 g-4">
         <div class="col" *ngFor="let libro of librosFiltrados">
           <div class="card">
-            <img src="{{ libro[4] }}" class="card-img-top" alt="..." />
+            <img src="{{ libro[3] }}" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">{{ libro[0] | uppercase }}</h5>
               <p><b>Disponibilidad: </b>{{ libro[1] }}</p>
-              <p><b>Categoría: </b> {{ libro[2] }}</p>
-              <p class="card-text">
-                {{ libro[3] }}
-              </p>
+              <div class="textContainer">
+                <b>Descripción: </b> {{ libro[2] }}
+              </div>
             </div>
             <div class="card-footer">
               <button
                 type="button"
                 class="btn btn-primary btn-sm"
+                font
                 (click)="addToCart(libro)"
                 [disabled]="!logged"
               >
