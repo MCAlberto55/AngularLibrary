@@ -51,3 +51,68 @@
 .frecuentes a:hover {
   cursor: pointer;
 }
+
+@media (max-width: 930px) {
+  .informacion {
+    width: 60%;
+    font-size: 18px;
+  }
+
+  .frecuentes {
+    width: 20%;
+    font-size: 16px;
+  }
+
+  .contacto {
+    width: 20%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 740px) {
+  .informacion {
+    width: 55%;
+  }
+
+  .frecuentes {
+    width: 20%;
+  }
+
+  .contacto {
+    width: 25%;
+  }
+}
+
+@media (max-width: 600px) {
+  .informacion {
+    width: 55%;
+    font-size: 16px;
+  }
+
+  .frecuentes {
+    width: 20%;
+    font-size: 14px;
+  }
+
+  .contacto {
+    width: 25%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 540px) {
+  .informacion {
+    width: 50%;
+    font-size: 12px;
+  }
+
+  .frecuentes {
+    width: 20%;
+    font-size: 12px;
+  }
+
+  .contacto {
+    width: 30%;
+    font-size: 12px;
+  }
+}

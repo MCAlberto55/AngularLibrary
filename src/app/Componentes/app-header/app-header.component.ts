@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Input } from '@angular/core';
-import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-app-header',

@@ -11,7 +11,6 @@ export class ItemCartComponent implements OnInit {
   @Input() libros: any[];
   @Input() test: string;
   @Input() encryptedUserId: string = '';
-  librosFiltrados: any[];
   alerts: string[];
   logged: boolean = false;
   @Input() inicial: number;
@@ -21,8 +20,6 @@ export class ItemCartComponent implements OnInit {
   ngOnChanges() {
     console.log('a ver aki');
     console.log(this.libros);
-
-    this.librosFiltrados = this.libros;
   }
 
   ngOnInit(): void {
@@ -34,16 +31,11 @@ export class ItemCartComponent implements OnInit {
   addToCart(item: any[]) {
     if (localStorage.getItem('UserToken')) {
       console.log(item);
-      let itemInfo: string;
-      itemInfo = JSON.stringify({
-        //con back listo, no pasará 1
-        userId: 1,
-        date: new Date(),
-        products: [{ productId: item[5], quantity: 1 }],
-      });
-      console.log('Agregando al carrito con id de producto ' + item[5]);
-      this.api.add(itemInfo).subscribe((res) => {
-        console.log(res);
+
+      console.log('Agregando al carrito con id de producto ' + item[4]);
+
+      this.api.add(item[4]).subscribe((res) => {
+        console.log('respuesta de add' + res);
         // swal(
         //   '¡Libro agregado al carrito!',
         //   'Gracias por su preferencia owo',
@@ -61,26 +53,4 @@ export class ItemCartComponent implements OnInit {
 
   /*Idealmente se haría una petición al backend que retorne los datos que encuentre,
 pero con fakeStore no se puede simular una llamada que retorna lo encontrado*/
-  actualizarBusqueda(busqueda: string, libros: any[]) {
-    let librosFiltrados: any[];
-    librosFiltrados = libros.filter((book) => {
-      return book[0].includes(busqueda);
-    });
-
-    if (librosFiltrados.length == 0) {
-      if (this.inicial != 0) {
-        // swal(
-        //   '¡No hemos encontrado ese libro!',
-        //   'Intenta ingresando otros datos ಥ_ಥ',
-        //   'error'
-        // );
-      }
-      console.log('inicial :' + this.inicial);
-
-      return libros;
-    } else {
-      console.log('Nuevo array: ' + librosFiltrados);
-      return librosFiltrados;
-    }
-  }
 }

@@ -9,127 +9,127 @@
     <app-loading-spinner [isLoading]="isLoading"></app-loading-spinner>
 
     <section class="h-100 gradient-custom">
-      <div class="container py-5">
-        <div class="row d-flex justify-content-center my-4">
-          <div class="col-md-8">
-            <div class="card mb-4">
-              <div class="card-header py-3">
-                <h5 class="mb-0">Su carrito</h5>
-              </div>
-              <div class="card-body" *ngFor="let libro of librosCarrito">
-                <!-- Single item -->
-                <div class="row">
-                  <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                    <!-- Image -->
-                    <div
-                      class="bg-image hover-overlay hover-zoom ripple rounded"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img
-                        src="{{ libro.image }}"
-                        class="w-100"
-                        alt="Blue Jeans Jacket"
-                      />
-                      <a href="#!">
-                        <div
-                          class="mask"
-                          style="background-color: rgba(251, 251, 251, 0.2)"
-                        ></div>
-                      </a>
-                    </div>
-                    <!-- Image -->
-                  </div>
-
-                  <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                    <!-- Data -->
-                    <p>
-                      <strong>{{ libro.title }}</strong>
-                    </p>
-                    <p><b>Disponibles:</b> {{ libro.price }}</p>
-                    <p><b>Categoría:</b> {{ libro.category }}</p>
-                    <p><b>Sinópsis:</b> {{ libro.description }}</p>
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-sm me-1 mb-2"
-                      data-mdb-toggle="tooltip"
-                      title="Remove item"
-                    >
-                      <i class="fas fa-trash"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-danger btn-sm mb-2"
-                      data-mdb-toggle="tooltip"
-                      title="Move to the wish list"
-                    >
-                      <i class="fas fa-heart"></i>
-                    </button>
-                    <!-- Data -->
-                  </div>
-
-                  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <!-- Quantity -->
-                    <div class="d-flex mb-4" style="max-width: 300px">
-                      <div class="form-outline">
-                        <p class="text-start text-md-center">
-                          <strong>Cantidad</strong>
-                        </p>
-                        <input
-                          (click)="addBook()"
-                          readonly
-                          id="form1"
-                          min="0"
-                          name="quantity"
-                          value="1"
-                          type="number"
-                          class="form-control"
+      <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container py-5">
+          <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-8">
+              <div class="card mb-4">
+                <div class="card-header py-3">
+                  <h5 class="mb-0">Su carrito</h5>
+                </div>
+                <div class="card-body" *ngFor="let libro of librosCarrito">
+                  <!-- Single item -->
+                  <div class="row">
+                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                      <!-- Image -->
+                      <div
+                        class="bg-image hover-overlay hover-zoom ripple rounded"
+                        data-mdb-ripple-color="light"
+                      >
+                        <img
+                          src="{{ libro[3] }}"
+                          class="w-100"
+                          alt="A nice book"
                         />
+                        <a href="#!">
+                          <div
+                            class="mask"
+                            style="background-color: rgba(251, 251, 251, 0.2)"
+                          ></div>
+                        </a>
                       </div>
+                      <!-- Image -->
                     </div>
-                    <!-- Quantity -->
+
+                    <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                      <!-- Data -->
+                      <p>
+                        <strong>{{ libro[0] }}</strong>
+                      </p>
+                      <p><b>Disponibles:</b> {{ libro[1] }}</p>
+                      <p><b>Sinópsis:</b> {{ libro[2] }}</p>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-sm me-1 mb-2"
+                        data-mdb-toggle="tooltip"
+                        title="Remove item"
+                      >
+                        <i class="fas fa-trash"></i>
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-sm mb-2"
+                        data-mdb-toggle="tooltip"
+                        title="Move to the wish list"
+                      >
+                        <i class="fas fa-heart"></i>
+                      </button>
+                      <!-- Data -->
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                      <!-- Quantity -->
+                      <div class="d-flex mb-4" style="max-width: 300px">
+                        <div class="form-outline">
+                          <p class="text-start text-md-center">
+                            <strong>Cantidad</strong>
+                          </p>
+                          <input
+                            readonly
+                            id="form1"
+                            min="0"
+                            name="quantity"
+                            value="{{ libro[4] }}"
+                            type="number"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <!-- Quantity -->
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <div class="card-header py-3">
-                <h5 class="mb-0">Resumen</h5>
-              </div>
-              <div class="card-body">
-                <ul class="list-group list-group-flush">
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
+            <div class="col-md-4">
+              <div class="card mb-4">
+                <div class="card-header py-3">
+                  <h5 class="mb-0">Resumen</h5>
+                </div>
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
+                    >
+                      Total de libros:
+                      <span>{{ numItemsCart }}</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center px-0"
+                    >
+                      Costo de renta: Gratuito
+                      <span>Gratuito</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-23"
+                    >
+                      <div>
+                        <strong>En 3 días la solicitud se anulará</strong>
+                        <p class="mb-1">
+                          (Pónganse en contacto con notros si necesita una
+                          prórroga)
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-lg btn-block"
+                    (click)="generateQR()"
                   >
-                    Total de libros:
-                    <span>{{ numItemsCart }}</span>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center px-0"
-                  >
-                    Costo de renta:
-                    <span>{{ calculateCost() }}</span>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-23"
-                  >
-                    <div>
-                      <strong>En 3 días la solicitud se anulará</strong>
-                      <p class="mb-1">
-                        (Pónganse en contacto con notros si necesita una
-                        prórroga)
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-                <button
-                  type="button"
-                  class="btn btn-primary btn-lg btn-block"
-                  (click)="generateQR()"
-                >
-                  Generar QR
-                </button>
+                    Generar QR
+                  </button>
+                </div>
               </div>
             </div>
           </div>

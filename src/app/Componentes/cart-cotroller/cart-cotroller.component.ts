@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GetUserInfoService } from '../../Services/getUserInfo/get-user-info.service';
 import { GetCartService } from '../../Services/GetCart/get-cart.service';
 import { GetSingleBookService } from '../../Services/getASingle/get-single-book.service';
-//import swal from '../../utils/sweetAlert';
+import { ReservacionService } from '../../Services/Reservar/reservacion.service';
 
 @Component({
   selector: 'app-cart-cotroller',
@@ -13,69 +12,59 @@ export class CartCotrollerComponent implements OnInit {
   numItemsCart = 0;
   private userCartId: string;
   isLoading = false;
-  librosCarrito: any[];
+  librosCarrito: any[] = [];
 
   constructor(
-    private userInfoService: GetUserInfoService,
-    private userCartService: GetCartService,
+    private GetCartService: GetCartService,
+    private ReservacionService: ReservacionService,
     private getBookService: GetSingleBookService
   ) {}
 
   ngOnInit(): void {
     this.isLoading = true;
+    this.numItemsCart = 0;
     if (!localStorage.getItem('UserToken')) {
       window.location.href = '';
     } else {
-      let userData = this.userInfoService.getInfo(
-        JSON.stringify(localStorage.getItem('UserToken'))
-      );
-
-      this.userCartId = userData.cartId;
-
       console.log('khe?');
-      this.userCartService.getCart(this.userCartId).subscribe((res) => {
-        let librosInfo: any[] = [];
-        console.log(JSON.stringify(res));
-        console.log(res[0].products);
-        let temp = res[0].products;
-        console.log(temp[0]);
+      this.GetCartService.getCart().subscribe((res) => {
+        let answer = res.items;
+        console.log('respuesta' + res);
+        console.log('respuesta' + answer);
 
-        res[0].products.forEach((bookId: any) => {
-          this.numItemsCart++;
-          console.log('resolviendo: ' + JSON.stringify(bookId));
-          console.log('resolviendo: ' + bookId.productId); //SI FUNCIONAAAAAAAAAAAAAAAAAAA
+        this.cargarLibros(answer);
 
-          this.getBookService.getBook(bookId.productId).subscribe((res) => {
-            console.log(res);
-            librosInfo.push(res);
-          });
-          console.log('PUSH');
-        });
-
-        this.librosCarrito = librosInfo;
-        console.log('total: ' + JSON.stringify(this.librosCarrito.length));
-        console.log('----------------------------------------');
-        console.log(librosInfo);
         this.isLoading = false;
       });
     }
   }
 
-  calculateCost(): number {
-    return Number(this.numItemsCart) * 40;
-  }
+  cargarLibros(answer: any) {
+    this.librosCarrito.splice(0, this.librosCarrito.length);
+    for (let i = 0; i < answer.length; i++) {
+      let quantity = answer[i].quantity;
+      this.numItemsCart += quantity;
+      let temp = answer[i].book;
 
-  addBook(/*cantidad: string*/) {
-    /*let temp = this.numItemsCart;
-    this.numItemsCart = temp + Number(cantidad);*/
-    // swal('¡Oops!', 'Solo se puede rentar 1 ejemplar por usuario ಠ_ಠ', 'info');
+      console.log(temp.id);
+
+      let book = [
+        temp.title,
+        temp.availableQuantity,
+        //temp.createdAt,
+        temp.description,
+        temp.imageUrl,
+        quantity,
+        temp.id,
+      ];
+      this.librosCarrito.push(book);
+    }
+    console.log(this.librosCarrito);
   }
 
   generateQR() {
-    // swal(
-    //   '¡Se ha generado su QR!',
-    //   'Se le mandado a su correo ( ˙▿˙ )',
-    //   'success'
-    // );
+    this.ReservacionService.reservar().subscribe((res) => {
+      console.log(res);
+    });
   }
 }

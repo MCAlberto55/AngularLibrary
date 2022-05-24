@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetCartService {
-  private fakeApi = 'https://fakestoreapi.com/carts/user/';
+  private api = 'https://qr-lib-api.herokuapp.com/users/cart';
 
   constructor(private http: HttpClient) {}
 
-  public getCart(id: string): Observable<any> {
-    return this.http.get(this.fakeApi + id);
+  public getCart(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('UserToken')}`,
+      }),
+    };
+    return this.http.get(this.api, httpOptions);
   }
 }

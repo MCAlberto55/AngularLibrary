@@ -7,40 +7,16 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class LogInService {
-  private fakeApi = 'https://fakestoreapi.com/auth/login';
+  private api = 'https://qr-lib-api.herokuapp.com/auth/login';
 
   constructor(private htts: HttpClient) {}
 
-  public logIn(user: string, pass: string): Observable<any> {
-    const headers = new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*');
+  public logIn(mail: string, pass: string): Observable<any> {
+    let data = {
+      email: mail,
+      password: pass,
+    };
 
-    if (user == null || user.length == 0) {
-      console.log('error');
-      throw new Error(
-        'El nombre de usuario no es válido o contiene caracteres especiales'
-      );
-    }
-
-    if (pass == null || pass.length == 0) {
-      console.log('error');
-
-      throw new Error(
-        'La contraseña no es válida o contiene caracteres especiales'
-      );
-    }
-
-    let dato = JSON.stringify({
-      username: 'johnd',
-      password: 'm38rmF$',
-    });
-
-    let data = JSON.stringify({
-      user,
-      pass,
-    });
-
-    return this.htts.post(this.fakeApi, dato, { headers: headers });
+    return this.htts.post(this.api, data);
   }
 }

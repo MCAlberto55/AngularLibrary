@@ -11,6 +11,7 @@ import { ProductsPresentationComponent } from './Componentes/products-presentati
 import { AppHeaderComponent } from './Componentes/app-header/app-header.component';
 import { LoadingSpinnerComponent } from './Componentes/loading-spinner/loading-spinner.component';
 import { AppFooterComponent } from './Componentes/app-footer/app-footer.component';
+import { RegisterComponent } from './Componentes/register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AppFooterComponent } from './Componentes/app-footer/app-footer.componen
     AppHeaderComponent,
     LoadingSpinnerComponent,
     AppFooterComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   bootstrap: [AppComponent],

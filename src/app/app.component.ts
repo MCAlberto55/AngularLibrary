@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GetUserInfoService } from './Services/getUserInfo/get-user-info.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +15,7 @@ export class AppComponent implements OnInit {
   logged = false;
   title = 'Library';
 
-  constructor(private userInfo: GetUserInfoService) {}
+  constructor() {}
 
   ngOnChanges() {}
 
