@@ -13,6 +13,7 @@ export class CartCotrollerComponent implements OnInit {
   private userCartId: string;
   isLoading = false;
   librosCarrito: any[] = [];
+  router: any;
 
   constructor(
     private GetCartService: GetCartService,
@@ -66,5 +67,6 @@ export class CartCotrollerComponent implements OnInit {
     this.ReservacionService.reservar().subscribe((res) => {
       console.log(res);
     });
+    this.router.navigate(['/Products']);
   }
 }

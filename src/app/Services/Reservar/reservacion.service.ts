@@ -22,7 +22,7 @@ export class ReservacionService {
       }),
     };
     return this.https
-      .post(this.api, httpOptions)
+      .post(this.api, {}, httpOptions)
       .pipe(catchError(this.handleError));
   }
 
